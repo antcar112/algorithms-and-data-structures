@@ -10,14 +10,16 @@ const merge = (arr1, arr2) => {
   return results.concat(arr1.slice(index1)).concat(arr2.slice(index2))
 }
 
-export const mergeSort = (arr) => {
+const mergeSort = (arr) => {
   if (arr.length <= 1) {
     return arr
   }
+
   const mid = Math.floor(arr.length / 2)
   const left = mergeSort(arr.slice(0, mid))
   const right = mergeSort(arr.slice(mid))
+
   return merge(left, right)
 }
 
-console.log(mergeSort([1, 30, 2, -1, 5, 63, 7, 18]))
+module.exports = mergeSort

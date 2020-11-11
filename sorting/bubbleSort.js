@@ -1,7 +1,8 @@
-import { swap } from './helpers'
+const { swap } = require('./helpers.js')
 
 const bubbleSort = (arr) => {
   let noSwaps = false
+
   for (let i = arr.length; i > 0 && !noSwaps; i--) {
     noSwaps = true
     for (let j = 0; j < i - 1; j++) {
@@ -11,7 +12,8 @@ const bubbleSort = (arr) => {
       }
     }
   }
+
   return arr
 }
 
-console.log(bubbleSort([8, 1, 2, 3, 4, 5, 6, 7]))
+module.exports = bubbleSort
