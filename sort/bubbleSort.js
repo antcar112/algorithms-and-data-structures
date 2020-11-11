@@ -1,5 +1,11 @@
 const { swap } = require('./helpers.js')
 
+/**
+ * Bubble sort
+ *
+ * Time complexity: O(n) (best) - O(n²) (avg, worst)
+ * Space complexity: O(1)
+ */
 const bubbleSort = (arr) => {
   let noSwaps = false
 

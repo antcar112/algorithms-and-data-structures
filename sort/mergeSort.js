@@ -10,6 +10,12 @@ const merge = (arr1, arr2) => {
   return results.concat(arr1.slice(index1)).concat(arr2.slice(index2))
 }
 
+/**
+ * Merge sort
+ *
+ * Time complexity: O(n log n) (best, avg, worst)
+ * Space complexity: O(n)
+ */
 const mergeSort = (arr) => {
   if (arr.length <= 1) {
     return arr

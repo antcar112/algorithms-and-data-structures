@@ -1,4 +1,4 @@
-const { str1, str2, str3 } = require('../data/strings')
+const { str1, str2, str3 } = require('../data')
 
 /**
  * Given a string s, recursively remove adjacent duplicate characters from the string s.

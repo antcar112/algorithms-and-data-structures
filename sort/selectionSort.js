@@ -1,5 +1,11 @@
 const { swap } = require('./helpers.js')
 
+/**
+ * Selection sort
+ *
+ * Time complexity: O(n²) (best, avg, worst)
+ * Space complexity: O(1)
+ */
 const selectionSort = (arr) => {
   if (arr.length <= 1) {
     return arr
