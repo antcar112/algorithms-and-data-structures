@@ -1,10 +1,9 @@
-const { swap } = require('./helpers.js')
+const { swap } = require('./utils')
 
 /**
  * Selection sort
  *
- * Time complexity: O(n²) (best, avg, worst)
- * Space complexity: O(1)
+ * @param {Array} arr An array to sort
  */
 const selectionSort = (arr) => {
   if (arr.length <= 1) {
@@ -25,5 +24,13 @@ const selectionSort = (arr) => {
 
   return arr
 }
+
+// const arr1 = [3, 6, 9, 22, 33, 88]
+// const arr2 = [1, 2, 3, 7, 4, 9, 10]
+// const arr3 = [10000, 9999, 88, -33, 22, 5432, 1337, 42]
+
+// console.log(selectionSort(arr1))
+// console.log(selectionSort(arr2))
+// console.log(selectionSort(arr3))
 
 module.exports = selectionSort

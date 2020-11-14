@@ -1,4 +1,4 @@
-const { swap } = require('./helpers.js')
+const { swap } = require('./utils')
 
 const pivot = (arr, startIndex = 0, endIndex = arr.length - 1) => {
   let swapIndex = startIndex
@@ -16,8 +16,9 @@ const pivot = (arr, startIndex = 0, endIndex = arr.length - 1) => {
 /**
  * Quick sort
  *
- * Time complexity: O(n log n) (best, avg) - O(n²) (worst)
- * Space complexity: O(n log n)
+ * @param {Array} arr An array to sort
+ * @param {number=} left The index to start sort from
+ * @param {number=} right The index to sort to
  */
 const quickSort = (arr, left = 0, right = arr.length - 1) => {
   if (left < right) {
@@ -27,5 +28,13 @@ const quickSort = (arr, left = 0, right = arr.length - 1) => {
   }
   return arr
 }
+
+// const arr1 = [4, 2, 6, 1]
+// const arr2 = [1, 30, 2, 99, 5, 63, 7, 18]
+// const arr3 = [8, 1, 16, 3, 9, 5, 6, 7]
+
+// console.log(quickSort(arr1))
+// console.log(quickSort(arr2))
+// console.log(quickSort(arr3))
 
 module.exports = quickSort

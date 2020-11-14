@@ -1,8 +1,7 @@
 /**
  * Insertion sort
  *
- * Time complexity: O(n) (best) - O(n²) (avg, worst)
- * Space complexity: O(1)
+ * @param {Array} arr An array to sort
  */
 const insertionSort = (arr) => {
   for (let i = 1; i < arr.length; i++) {
@@ -17,5 +16,13 @@ const insertionSort = (arr) => {
 
   return arr
 }
+
+// const arr1 = [4, 2, 6, 1, 9]
+// const arr2 = [22, 19, 33, 1, 2, 40, 53, 6]
+// const arr3 = [8, 1, 2, 3, 4, 5, 6, 7]
+
+// console.log(insertionSort(arr1))
+// console.log(insertionSort(arr2))
+// console.log(insertionSort(arr3))
 
 module.exports = insertionSort

@@ -13,8 +13,7 @@ const merge = (arr1, arr2) => {
 /**
  * Merge sort
  *
- * Time complexity: O(n log n) (best, avg, worst)
- * Space complexity: O(n)
+ * @param {Array} arr An array to sort
  */
 const mergeSort = (arr) => {
   if (arr.length <= 1) {
@@ -27,5 +26,13 @@ const mergeSort = (arr) => {
 
   return merge(left, right)
 }
+
+// const arr1 = [30, 11, 2, -1, 6]
+// const arr2 = [2020, 444, 11, 739, 2844, 94, 7]
+// const arr3 = [4, 2, 6, 1, 40]
+
+// console.log(mergeSort(arr1))
+// console.log(mergeSort(arr2))
+// console.log(mergeSort(arr3))
 
 module.exports = mergeSort

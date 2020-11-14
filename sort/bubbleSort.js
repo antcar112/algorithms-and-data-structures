@@ -1,10 +1,9 @@
-const { swap } = require('./helpers.js')
+const { swap } = require('./utils')
 
 /**
  * Bubble sort
  *
- * Time complexity: O(n) (best) - O(n²) (avg, worst)
- * Space complexity: O(1)
+ * @param {Array} arr An array to sort
  */
 const bubbleSort = (arr) => {
   let noSwaps = false
@@ -21,5 +20,13 @@ const bubbleSort = (arr) => {
 
   return arr
 }
+
+// const arr1 = [4, 2, 6, 1]
+// const arr2 = [1, 30, 2, 99, 5, 63, 7, 18]
+// const arr3 = [10000, 9999, 88, -33, 22, 5432, 1337, 42]
+
+// console.log(bubbleSort(arr1))
+// console.log(bubbleSort(arr2))
+// console.log(bubbleSort(arr3))
 
 module.exports = bubbleSort
