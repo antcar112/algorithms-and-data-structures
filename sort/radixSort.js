@@ -36,12 +36,12 @@ const radixSort = (nums) => {
   return nums
 }
 
-const arr1 = [1, 33, 50505, 99, 12345, 3421, 220, 7]
-const arr2 = [360, 11, 77, 2, 444]
-const arr3 = [333, 1, 4444, 22]
+// const arr1 = [1, 33, 50505, 99, 12345, 3421, 220, 7]
+// const arr2 = [360, 11, 77, 2, 444]
+// const arr3 = [333, 1, 4444, 22]
 
-console.log(radixSort(arr1))
-console.log(radixSort(arr2))
-console.log(radixSort(arr3))
+// console.log(radixSort(arr1))
+// console.log(radixSort(arr2))
+// console.log(radixSort(arr3))
 
 module.exports = radixSort
