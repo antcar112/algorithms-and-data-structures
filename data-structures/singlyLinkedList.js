@@ -233,7 +233,7 @@ class SinglyLinkedList {
   }
 }
 
-module.exports = singlyLinkedList
+module.exports = SinglyLinkedList
 
 // Make new list
 const list = new SinglyLinkedList()

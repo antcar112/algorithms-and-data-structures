@@ -14,3 +14,7 @@ Compared to Arrays:
 
 - Singly linked lists excel when insertion & deletion at the beginning are frequent.
 - Slower than accessing elements at a given index
+
+### [Doubly Linked List](doublyLinkedList.js)
+
+Almost identical to Singly Linked Lists, but each node has an additional pointer to the previous node. This makes removing nodes at the end of a Doubly Linked List much faster than a Singly Linked List. However, Doubly Linked Lists use more memory than Singly Linked Lists.
