@@ -35,6 +35,30 @@ class DoublyLinkedList {
   }
 
   /**
+   * Removes the node at the end of the list.
+   *
+   * @returns {T} The value of the removed node
+   */
+  pop() {
+    if (!this.head) {
+      return undefined
+    }
+    const poppedNode = this.tail
+
+    if (this.length === 1) {
+      this.head = null
+      this.tail = null
+    } else {
+      this.tail = poppedNode.prev
+      poppedNode.prev = null
+      this.tail.next = null
+    }
+
+    this.length--
+    return poppedNode.val
+  }
+
+  /**
    * Adds all node values into a formatted string.
    *
    * @returns {string} A string of all node values
@@ -46,7 +70,7 @@ class DoublyLinkedList {
       str += `${node.val}, `
       node = node.next
     }
-    return str.slice(0, -2)
+    return `[ ${str.slice(0, -2)} ]`
   }
 
   /**
@@ -63,3 +87,11 @@ const list = new DoublyLinkedList()
 
 list.push('hello')
 list.push('there')
+list.push('friendo')
+
+list.print()
+
+const popped = list.pop()
+console.log(popped)
+list.print()
+console.log([])

@@ -42,7 +42,7 @@ class SinglyLinkedList {
     }
 
     let current = this.head
-    let newTail = current
+    let newTail
 
     while (current.next) {
       newTail = current
@@ -222,7 +222,7 @@ class SinglyLinkedList {
       str += `${node.val}, `
       node = node.next
     }
-    return str.slice(0, -2)
+    return `[ ${str.slice(0, -2)} ]`
   }
 
   /**
