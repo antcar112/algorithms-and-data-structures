@@ -102,6 +102,50 @@ class DoublyLinkedList {
   }
 
   /**
+   * Retrieves the node at the specified index.
+   *
+   * @param {number} index The index of the node to get
+   * @returns {Node} The node at the given index.
+   */
+  get(index) {
+    if (index < 0 || index >= this.length) {
+      return null
+    }
+
+    let current
+
+    if (index <= this.length / 2) {
+      current = this.head
+      for (let count = 0; count !== index; count++) {
+        current = current.next
+      }
+    } else {
+      current = this.tail
+      for (let count = this.length - 1; count !== index; count--) {
+        current = current.prev
+      }
+    }
+
+    return current
+  }
+
+  /**
+   * Changes the value in the node at the specified index.
+   *
+   * @param {number} index The index of the node to set
+   * @param {T} val The new value
+   * @returns {boolean} If the node was successfully updated
+   */
+  set(index, val) {
+    const node = this.get(index)
+    if (!node) {
+      return false
+    }
+    node.val = val
+    return true
+  }
+
+  /**
    * Adds all node values into a formatted string.
    *
    * @returns {string} A string of all node values
@@ -142,4 +186,11 @@ const shifted = list.shift()
 // console.log(shifted)
 
 list.unshift('HELLO')
+list.unshift('GO!')
+list.unshift('Set...')
+list.unshift('ready..')
+list.push('final')
+// list.print()
+
+const setted = list.set(0, 'Anthony')
 // list.print()
