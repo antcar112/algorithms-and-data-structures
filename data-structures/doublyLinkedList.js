@@ -146,6 +146,89 @@ class DoublyLinkedList {
   }
 
   /**
+   * Adds a new node at the specified index.
+   *
+   * @param {number} index The index the new node
+   * @param {T} val The value of the new node
+   * @returns {boolean} If the node was successfully inserted
+   */
+  insert(index, val) {
+    if (index < 0 || index > this.length) {
+      return false
+    }
+    if (index === 0) {
+      return !!this.unshift(val)
+    }
+    if (index === this.length) {
+      return !!this.push(val)
+    }
+
+    const newNode = new Node(val)
+    const prevNode = this.get(index - 1)
+    const nextNode = prevNode.next
+
+    prevNode.next = newNode
+    newNode.prev = prevNode
+    newNode.next = nextNode
+    nextNode.prev = newNode
+
+    this.length++
+    return true
+  }
+
+  /**
+   * Removes the node at the specified index.
+   *
+   * @param {number} index The index of the node to set
+   * @returns {Node} The value of the removed node
+   */
+  remove(index) {
+    if (index < 0 || index >= this.length) {
+      return undefined
+    }
+    if (index === 0) {
+      return this.shift()
+    }
+    if (index === this.length - 1) {
+      return this.pop()
+    }
+
+    const node = this.get(index)
+
+    node.prev.next = node.next
+    node.next.prev = node.prev
+    node.prev = null
+    node.next = null
+
+    this.length--
+    return node.val
+  }
+
+  /**
+   * Reverses the linked list.
+   *
+   * @returns {DoublyLinkedList} The updated linked list
+   */
+  reverse() {
+    let current = this.head
+    this.head = this.tail
+    this.tail = current
+
+    let prev = null
+    let next
+
+    for (let i = 0; i < this.length; i++) {
+      next = current.next
+      current.next = prev
+      current.prev = next
+
+      prev = current
+      current = next
+    }
+    return this
+  }
+
+  /**
    * Adds all node values into a formatted string.
    *
    * @returns {string} A string of all node values
@@ -169,28 +252,3 @@ class DoublyLinkedList {
 }
 
 module.exports = DoublyLinkedList
-
-const list = new DoublyLinkedList()
-
-list.push('hello')
-list.push('there')
-list.push('friendo')
-
-// list.print()
-
-const popped = list.pop()
-// console.log(popped)
-// list.print()
-
-const shifted = list.shift()
-// console.log(shifted)
-
-list.unshift('HELLO')
-list.unshift('GO!')
-list.unshift('Set...')
-list.unshift('ready..')
-list.push('final')
-// list.print()
-
-const setted = list.set(0, 'Anthony')
-// list.print()

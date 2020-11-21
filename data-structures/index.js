@@ -1,2 +1,2 @@
-exports.singlyLinkedList = require('./singlyLinkedList')
-exports.doublyLinkedList = require('./doublyLinkedList')
+exports.SinglyLinkedList = require('./SinglyLinkedList')
+exports.DoublyLinkedList = require('./DoublyLinkedList')
