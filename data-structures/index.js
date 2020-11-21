@@ -1,4 +1,4 @@
-exports.DoublyLinkedList = require('./DoublyLinkedList')
+exports.DoublyLinkedList = require('./DoubleLinkedList')
 exports.Queue = require('./Queue')
-exports.SinglyLinkedList = require('./SinglyLinkedList')
+exports.SinglyLinkedList = require('./SLinkedList')
 exports.Stack = require('./Stack')
