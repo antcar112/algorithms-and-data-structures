@@ -1,17 +1,18 @@
-const { Stack } = require('./index')
+const { Queue } = require('./index')
 
-const stack = new Stack()
+const queue = new Queue()
 
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.push(4)
+queue.enqueue('a')
+queue.enqueue('b')
+queue.enqueue('c')
+queue.enqueue('d')
+queue.enqueue('e')
 
-stack.print()
+queue.print()
 
-console.log(stack.pop())
-console.log(stack.pop())
-console.log(stack.pop())
-console.log(stack.pop())
-console.log(stack.pop())
-stack.print()
+const a = queue.dequeue()
+const b = queue.dequeue()
+const c = queue.dequeue()
+
+console.log({ a, b, c })
+queue.print()
