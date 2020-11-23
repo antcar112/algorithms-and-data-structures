@@ -58,3 +58,12 @@ Similar to a Stack, but follows a FIFO (first in, first out) principle. This mea
 | Access    | O(n)            | **O(1)**   |
 
 **Note:** Again, as searching & accessing aren't used by Stacks, they don't actually matter.
+
+## [Binary Search Tree](BinarySearchTree.js)
+
+A Tree data strucutre, in which every parent has at most two children. Every node to the left of a parent node is always less than that parent. Ever node to the right of a parent node is always greater than that parent. This organization makes searching a Binary Search Tree extremely fast.
+
+| Operation | Time complexity | Array Time |
+| :-------- | :-------------- | :--------- |
+| Insertion | **O(log n)**    | O(n)       |
+| Searching | **O(log n)**    | O(n)       |

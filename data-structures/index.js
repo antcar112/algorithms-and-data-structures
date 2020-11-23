@@ -1,3 +1,4 @@
+exports.BinarySearchTree = require('./BinarySearchTree')
 exports.DoublyLinkedList = require('./DoublyLinkedList')
 exports.Queue = require('./Queue')
 exports.SinglyLinkedList = require('./SinglyLinkedList')

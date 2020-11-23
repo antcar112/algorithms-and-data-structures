@@ -1,18 +1,16 @@
-const { Queue } = require('./index')
+const { BinarySearchTree } = require('./index')
 
-const queue = new Queue()
+const tree = new BinarySearchTree()
 
-queue.enqueue('a')
-queue.enqueue('b')
-queue.enqueue('c')
-queue.enqueue('d')
-queue.enqueue('e')
+tree.insert(10)
+tree.insert(5)
+tree.insert(13)
+tree.insert(11)
+tree.insert(2)
+tree.insert(16)
+tree.insert(7)
 
-queue.print()
+console.log(tree.root.val)
+console.log(tree.root.left.val, tree.root.right.val)
 
-const a = queue.dequeue()
-const b = queue.dequeue()
-const c = queue.dequeue()
-
-console.log({ a, b, c })
-queue.print()
+console.log(tree.find(10))
