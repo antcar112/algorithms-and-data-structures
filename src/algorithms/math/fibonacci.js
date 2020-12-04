@@ -6,13 +6,13 @@
  *
  * @param {number} n position of number in sequence to return
  */
-const fib = (n) => {
+const fibonacci = (n) => {
   if (n <= 2) {
     return 1
   }
-  return fib(n - 1) + fib(n - 2)
+  return fibonacci(n - 1) + fibonacci(n - 2)
 }
 
-// console.log(fib(2)) // 1
-// console.log(fib(6)) // 8
-// console.log(fib(22)) // 17711
+// console.log(fibonacci(2)) // 1
+// console.log(fibonacci(6)) // 8
+// console.log(fibonacci(22)) // 17711
