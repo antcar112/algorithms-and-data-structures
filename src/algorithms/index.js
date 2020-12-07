@@ -8,3 +8,4 @@ exports.selectionSort = require('./sort/selectionSort')
 
 // tree
 exports.breadthFirstSearch = require('./tree/breadthFirstSearch')
+exports.depthFirstSearch = require('./tree/depthFirstSearch')
