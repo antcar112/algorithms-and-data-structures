@@ -3,15 +3,30 @@ class MaxBinaryHeap {
     this.values = [41, 39, 33, 18, 27, 12]
   }
 
-  getParentIndex(index) {
-    return Math.floor((index - 1) / 2)
+  getParentIndex = (index) => Math.floor((index - 1) / 2)
+
+  getLeftChildIndex = (index) => 2 * index + 1
+
+  getRightChildIndex = (index) => 2 * index + 2
+
+  isValidIndex = (index) => index >= 0 && index < this.values.length - 1
+
+  getParent = (index) => {
+    const parentIndex = this.getParentIndex(index)
+    return this.isValidIndex(parentIndex) ? this.values[parentIndex] : undefined
   }
 
-  getChildIndexes(index) {
-    const leftIndex = 2 * index + 1
-    const rightIndex = 2 * index + 2
-    return [leftIndex, rightIndex]
+  getLeftChild = (index) => {
+    const childIndex = this.getLeftChildIndex(index)
+    return this.isValidIndex(childIndex) ? this.values[childIndex] : undefined
   }
+
+  getRightChild = (index) => {
+    const childIndex = this.getRightChildIndex(index)
+    return this.isValidIndex(childIndex) ? this.values[childIndex] : undefined
+  }
+
+  getChildren = (index) => [this.getLeftChild(index), this.getRightChild(index)]
 
   insert(val) {
     this.values.push(val)
@@ -23,7 +38,7 @@ class MaxBinaryHeap {
     const value = this.values[index]
 
     let parentIndex = this.getParentIndex(index)
-    let parentValue = this.values[parentIndex]
+    let parentValue = this.getParent(index)
 
     while (index > 0 && value > parentValue) {
       this.values[parentIndex] = value
@@ -49,35 +64,29 @@ class MaxBinaryHeap {
 
   sinkDown() {
     let index = 0
-    const length = this.values.length
-    const value = this.values[0]
+    const [value] = this.values
 
     while (true) {
-      const [leftChildIndex, rightChildIndex] = this.getChildIndexes(index)
-      let leftChild, rightChild
-      let swap = null
-
-      if (leftChildIndex < length) {
-        leftChild = this.values[leftChildIndex]
-        if (leftChild > value) {
-          swap = leftChildIndex
-        }
-      }
-
-      if (rightChildIndex < length) {
-        rightChild = this.values[rightChildIndex]
-        if ((swap === null && rightChild > value) || (swap !== null && rightChild > leftChild)) {
-          swap = rightChildIndex
-        }
-      }
-
-      if (swap === null) {
+      const swapIndex = this.getSwapDownIndex(index)
+      if (!swapIndex) {
         break
       }
-      this.values[index] = this.values[swap]
-      this.values[swap] = value
-      index = swap
+
+      this.values[index] = this.values[swapIndex]
+      this.values[swapIndex] = value
+      index = swapIndex
     }
+  }
+
+  getSwapDownIndex(index) {
+    const value = this.values[index]
+    const [leftChild, rightChild] = this.getChildren(index)
+
+    return leftChild > value && leftChild > rightChild
+      ? this.getLeftChildIndex(index)
+      : rightChild > value && rightChild > leftChild
+      ? this.getRightChildIndex(index)
+      : undefined
   }
 }
 
