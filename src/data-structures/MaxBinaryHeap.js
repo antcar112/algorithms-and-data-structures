@@ -1,38 +1,56 @@
 class MaxBinaryHeap {
   constructor() {
-    this.values = [41, 39, 33, 18, 27, 12]
+    this.values = []
   }
 
-  getParentIndex = (index) => Math.floor((index - 1) / 2)
+  getParentIndex(index) {
+    return Math.floor((index - 1) / 2)
+  }
 
-  getLeftChildIndex = (index) => 2 * index + 1
+  getLeftChildIndex(index) {
+    return 2 * index + 1
+  }
 
-  getRightChildIndex = (index) => 2 * index + 2
+  getRightChildIndex(index) {
+    return 2 * index + 2
+  }
 
-  isValidIndex = (index) => index >= 0 && index < this.values.length - 1
+  isValidIndex(index) {
+    return index >= 0 && index < this.values.length
+  }
 
-  getParent = (index) => {
+  getParent(index) {
     const parentIndex = this.getParentIndex(index)
     return this.isValidIndex(parentIndex) ? this.values[parentIndex] : undefined
   }
 
-  getLeftChild = (index) => {
+  getLeftChild(index) {
     const childIndex = this.getLeftChildIndex(index)
     return this.isValidIndex(childIndex) ? this.values[childIndex] : undefined
   }
 
-  getRightChild = (index) => {
+  getRightChild(index) {
     const childIndex = this.getRightChildIndex(index)
     return this.isValidIndex(childIndex) ? this.values[childIndex] : undefined
   }
 
-  getChildren = (index) => [this.getLeftChild(index), this.getRightChild(index)]
+  getChildren(index) {
+    return [this.getLeftChild(index), this.getRightChild(index)]
+  }
 
+  /**
+   * Adds a new value to the heap.
+   *
+   * @param {T} val The value to add
+   */
   insert(val) {
     this.values.push(val)
     this.bubbleUp()
   }
 
+  /**
+   * Sorts heap by moving value at the end of the array up to its correct position.
+   */
   bubbleUp() {
     let index = this.values.length - 1
     const value = this.values[index]
@@ -50,6 +68,11 @@ class MaxBinaryHeap {
     }
   }
 
+  /**
+   * Removes and returns the greatest value in the heap (at the top of the heap).
+   *
+   * @return {T} The greatest value in the heap
+   */
   extractMax() {
     const [maxValue] = this.values
     const lastValue = this.values.pop()
@@ -62,6 +85,9 @@ class MaxBinaryHeap {
     return maxValue
   }
 
+  /**
+   * Sorts heap by moving value at the start of the array down to its correct position.
+   */
   sinkDown() {
     let index = 0
     const [value] = this.values
@@ -78,11 +104,16 @@ class MaxBinaryHeap {
     }
   }
 
+  /**
+   * Determines next index to swap to when sinking value down. Returns undefined if should no longer since down.
+   *
+   * @returns {number || undefined} Returns next index to swap to, or undefined if should stop swapping.
+   */
   getSwapDownIndex(index) {
     const value = this.values[index]
     const [leftChild, rightChild] = this.getChildren(index)
 
-    return leftChild > value && leftChild > rightChild
+    return leftChild > value && (!rightChild || leftChild > rightChild)
       ? this.getLeftChildIndex(index)
       : rightChild > value && rightChild > leftChild
       ? this.getRightChildIndex(index)
