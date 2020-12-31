@@ -74,6 +74,14 @@ Heaps are another type of Tree data structure. Binary Heaps are a type of Binary
 
 In a Max Binary Heap, parent nodes are always larger than child nodes. In a Min Binary Heap, parents are smaller than child nodes.
 
+Binary Heaps a great data structure for sorting. They excel at inserting and removing data in an set order.
+
+| Operation | Time complexity | Array Time |
+| :-------- | :-------------- | :--------- |
+| Insertion | **O(log n)**    | O(n)       |
+| Removal   | **O(log n)**    | O(n)       |
+| Searching | O(n)            | O(n)       |
+
 ## [Priority Queue](PriorityQueue.js)
 
 A priority queue is a data structure where each element has a priority. Elements with higher priorities are served before elements with lower priorities. An example use case of this is the start up process of an OS. Most processes will be called in the order they are added to the queue, but certain processes with higher priorities will "cut-in" and be run first.
