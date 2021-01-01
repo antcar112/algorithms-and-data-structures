@@ -87,3 +87,15 @@ Binary Heaps a great data structure for sorting. They excel at inserting and rem
 A priority queue is a data structure where each element has a priority. Elements with higher priorities are served before elements with lower priorities. An example use case of this is the start up process of an OS. Most processes will be called in the order they are added to the queue, but certain processes with higher priorities will "cut-in" and be run first.
 
 Priority queues are an abstract concept, meaning they can be stored as any data stucuture. However, an Array or Linked List will result in poor speeds, as the entire list will need to be checked for each operation. Using a Heap is a much better choice.
+
+## [Hash Table](HashTable.js)
+
+Hash tables are used to store _key-value_ pairs. Unlike arrays, the keys are not ordered. Hash tables are very commonly used, because they are extremely fast at find values, adding values and removing values.
+
+#### How Hash Tables Work
+
+In order to look up values by a key (ex. colors["cyan"]), we need a valid way to convert keys into a valid array index (ex. colors[2]). This conversion is done with a _hash function_. In the example above we'd pass `"cyan"` to our hash function, and expect `2` to always be returned. Good hash functions should:
+
+1. Be fast (O(1) time)
+2. Distributes uniformly, doesn't cluster outputs at the same indices
+3. Deterministic, always gives the same output for the same input.

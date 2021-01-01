@@ -1,5 +1,6 @@
 exports.BinarySearchTree = require('./BinarySearchTree')
 exports.DoublyLinkedList = require('./DoublyLinkedList')
+exports.HashTable = require('./HashTable')
 exports.MaxBinaryHeap = require('./MaxBinaryHeap')
 exports.PriorityQueue = require('./PriorityQueue')
 exports.Queue = require('./Queue')
