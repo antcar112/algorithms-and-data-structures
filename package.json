@@ -1,0 +1,11 @@
+{
+  "name": "algorithms-and-data-structures",
+  "description": "A collection of common algorithms and data structures written in JavaScript.",
+  "version": "1.0.0",
+  "repository": "https://github.com/antcar112/algorithms-and-data-structures.git",
+  "author": "Anthony Caron <antcar1992@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/main.js"
+  }
+}
