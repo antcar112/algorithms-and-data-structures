@@ -30,10 +30,10 @@ class HashTable {
    */
   get(key) {
     const index = this._hash(key)
-    const storedPairs = this.keyMap[index]
+    const pairs = this.keyMap[index]
 
-    if (Array.isArray(storedPairs)) {
-      for (const [pairKey, value] of storedPairs) {
+    if (Array.isArray(pairs)) {
+      for (const [pairKey, value] of pairs) {
         if (key === pairKey) {
           return value
         }
@@ -43,7 +43,7 @@ class HashTable {
   }
 
   /**
-   * Detemines the index for a given key.
+   * Hashes a given key to determine its correct index.
    *
    * @param {string} key The key to store a value by
    * @returns {number} The index to store the value at
@@ -60,4 +60,4 @@ class HashTable {
   }
 }
 
-module.exports = HashTable
+module.exports = { HashTable }

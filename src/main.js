@@ -1,4 +1,10 @@
-const { HashTable } = require('./data-structures')
+const {
+  BinarySearchTree,
+  DoublyLinkedList,
+  Stack,
+  PriorityQueue,
+  HashTable,
+} = require('./data-structures')
 
 const table = new HashTable(17)
 

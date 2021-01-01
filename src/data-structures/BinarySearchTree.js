@@ -69,4 +69,4 @@ class BinarySearchTree {
   }
 }
 
-module.exports = BinarySearchTree
+module.exports = { BinarySearchTree }

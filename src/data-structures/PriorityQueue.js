@@ -1,4 +1,4 @@
-const Heap = require('./Heap')
+const { Heap } = require('./Heap')
 
 class Node {
   constructor(val, priority) {
@@ -102,4 +102,4 @@ class PriorityQueue extends Heap {
   }
 }
 
-module.exports = PriorityQueue
+module.exports = { PriorityQueue }

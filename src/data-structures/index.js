@@ -1,8 +1,19 @@
-exports.BinarySearchTree = require('./BinarySearchTree')
-exports.DoublyLinkedList = require('./DoublyLinkedList')
-exports.HashTable = require('./HashTable')
-exports.MaxBinaryHeap = require('./MaxBinaryHeap')
-exports.PriorityQueue = require('./PriorityQueue')
-exports.Queue = require('./Queue')
-exports.SinglyLinkedList = require('./SinglyLinkedList')
-exports.Stack = require('./Stack')
+const { BinarySearchTree } = require('./BinarySearchTree')
+const { DoublyLinkedList } = require('./DoublyLinkedList')
+const { HashTable } = require('./hash-table')
+const { MaxBinaryHeap } = require('./MaxBinaryHeap')
+const { PriorityQueue } = require('./PriorityQueue')
+const { Queue } = require('./Queue')
+const { SinglyLinkedList } = require('./SinglyLinkedList')
+const { Stack } = require('./Stack')
+
+module.exports = {
+  BinarySearchTree,
+  DoublyLinkedList,
+  HashTable,
+  MaxBinaryHeap,
+  PriorityQueue,
+  Queue,
+  SinglyLinkedList,
+  Stack,
+}

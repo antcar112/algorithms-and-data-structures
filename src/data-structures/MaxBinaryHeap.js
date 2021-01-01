@@ -1,4 +1,4 @@
-const Heap = require('./Heap')
+const { Heap } = require('./Heap')
 class MaxBinaryHeap extends Heap {
   constructor() {
     super()
@@ -87,4 +87,4 @@ class MaxBinaryHeap extends Heap {
   }
 }
 
-module.exports = MaxBinaryHeap
+module.exports = { MaxBinaryHeap }
