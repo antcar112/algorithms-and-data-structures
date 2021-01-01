@@ -2,7 +2,7 @@ const { HashTable } = require('./data-structures')
 
 const table = new HashTable()
 
-const i = HashTable.hash('pink')
-const j = HashTable.hash('orange')
-const k = HashTable.hash('red')
+const i = table._hash('pink')
+const j = table._hash('orange')
+const k = table._hash('red')
 console.log(i, j, k)
