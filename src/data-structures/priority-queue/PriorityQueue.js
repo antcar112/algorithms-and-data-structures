@@ -1,11 +1,5 @@
-const { Heap } = require('./heap')
-
-class Node {
-  constructor(val, priority) {
-    this.val = val
-    this.priority = priority
-  }
-}
+const { Node } = require('./Node')
+const { Heap } = require('../heap')
 
 /**
  * Priority Queue implemented using a MinBinaryHeap, meaning lower priority values will be dealt with first.
@@ -40,8 +34,8 @@ class PriorityQueue extends Heap {
     while (index > 0 && node.priority < parentNode.priority) {
       this.values[parentIndex] = node
       this.values[index] = parentNode
-      index = parentIndex
 
+      index = parentIndex
       parentIndex = this.getParentIndex(index)
       parentNode = this.values[parentIndex]
     }
@@ -70,16 +64,14 @@ class PriorityQueue extends Heap {
   sinkDown() {
     let index = 0
     const [node] = this.values
+    let swapIndex = this.getSwapDownIndex(index)
 
-    while (true) {
-      const swapIndex = this.getSwapDownIndex(index)
-      if (!swapIndex) {
-        break
-      }
-
+    while (swapIndex) {
       this.values[index] = this.values[swapIndex]
       this.values[swapIndex] = node
+
       index = swapIndex
+      swapIndex = this.getSwapDownIndex(index)
     }
   }
 

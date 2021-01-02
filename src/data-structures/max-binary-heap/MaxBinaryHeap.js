@@ -1,4 +1,4 @@
-const { Heap } = require('./heap')
+const { Heap } = require('../heap')
 
 class MaxBinaryHeap extends Heap {
   constructor() {
@@ -28,8 +28,8 @@ class MaxBinaryHeap extends Heap {
     while (index > 0 && value > parentValue) {
       this.values[parentIndex] = value
       this.values[index] = parentValue
-      index = parentIndex
 
+      index = parentIndex
       parentIndex = this.getParentIndex(index)
       parentValue = this.values[parentIndex]
     }
@@ -58,16 +58,14 @@ class MaxBinaryHeap extends Heap {
   sinkDown() {
     let index = 0
     const [value] = this.values
+    let swapIndex = this.getSwapDownIndex(index)
 
-    while (true) {
-      const swapIndex = this.getSwapDownIndex(index)
-      if (!swapIndex) {
-        break
-      }
-
+    while (swapIndex) {
       this.values[index] = this.values[swapIndex]
       this.values[swapIndex] = value
+
       index = swapIndex
+      swapIndex = this.getSwapDownIndex(index)
     }
   }
 

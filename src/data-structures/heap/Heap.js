@@ -44,6 +44,10 @@ class Heap {
    * @returns {string} A string of all node values
    */
   toString() {
+    if (!this.values.length) {
+      return 'Empty Heap'
+    }
+
     let valuesPerLine = 1
     let valuesOnLine = 0
 
