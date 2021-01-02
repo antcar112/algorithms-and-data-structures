@@ -31,9 +31,9 @@ An Adjacency Matrix is simply a table that shows lists vertices on a graph. This
 
 ### Adjacency List
 
-An array in which each vertex has its own nested array. Vertix `1`'s nested array will be stored at index `1`. These nested arrays list all connections for that vertex.
+Uses a hash table in which each vertex has its own nested array as a value. For example, vertix `a`'s nested array will be stored at key `a`. These nested arrays list all connections for that vertex.
 
-This approach works well if our nodes are numeric. If our nodes are strings, we can use a Hash Table instead of an array.
+If all the nodes are numeric and ordered, an array can be used instead.
 
 ### Comparison
 
