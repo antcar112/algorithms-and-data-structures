@@ -7,34 +7,81 @@ class Graph {
   }
 
   /**
-   * Addes new vertex to graph.
+   * Adds new vertex to graph.
    *
-   * @param {string} key The key of the vertex to add.
+   * @param {string} vertex The key of the vertex to add.
    */
-  addVertex(key) {
-    if (!this.adjacencyList[key]) {
-      this.adjacencyList[key] = []
+  addVertex(vertex) {
+    if (!this._hasVertices(vertex)) {
+      this.adjacencyList[vertex] = []
     }
   }
 
   /**
-   * Addes new edge between two existing vertice.
+   * Adds new edge between two existing vertices.
    *
-   * @param {string} vert1 The key of vertex 1.
-   * @param {string} vert2 The key of vertex 2.
+   * @param {string} vertex1 The key of vertex 1.
+   * @param {string} vertex2 The key of vertex 2.
    */
-  addEdge(vert1, vert2) {
-    const edges1 = this.adjacencyList[vert1]
-    const edges2 = this.adjacencyList[vert2]
-
-    if (!(edges1 && edges2)) {
-      if (!edges1.includes(vert2)) {
-        edges1.push(vert2)
+  addEdge(vertex1, vertex2) {
+    if (this._hasVertices([vertex1, vertex2])) {
+      if (!this._vertexHasEdge(vertex1, vertex2)) {
+        this.adjacencyList[vertex1].push(vertex2)
       }
-      if (!edges2.includes(vert1)) {
-        edges2.push(vert1)
+      if (!this._vertexHasEdge(vertex2, vertex1)) {
+        this.adjacencyList[vertex2].push(vertex1)
       }
     }
+  }
+
+  /**
+   * Removes an existing edge between two existing vertices.
+   *
+   * @param {string} vertex1 The key of vertex 1.
+   * @param {string} vertex2 The key of vertex 2.
+   */
+  removeEdge(vertex1, vertex2) {
+    if (this._hasVertices([vertex1, vertex2])) {
+      this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter((edge) => edge !== vertex2)
+      this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter((edge) => edge !== vertex1)
+    }
+  }
+
+  /**
+   * Removes existing vertex and all it's existing edges from the graph.
+   *
+   * @param {string} vertex The key of the vertex to add.
+   */
+  removeVertex(vertex) {
+    if (!this._hasVertices(vertex)) {
+      return
+    }
+    this.adjacencyList[vertex].forEach((edge) => this.removeEdge(vertex, edge))
+    delete this.adjacencyList[vertex]
+  }
+
+  /**
+   * Determines if graph contains vertices for all passed in keys.
+   *
+   * @param {string | string[]} keys The vertex names to check
+   * @returns {boolean} if all vertice names exist
+   */
+  _hasVertices(keys) {
+    const existingVertices = Object.keys(this.adjacencyList)
+    return Array.isArray(keys)
+      ? keys.every((key) => existingVertices.includes(key))
+      : existingVertices.includes(keys)
+  }
+
+  /**
+   * Determines if a vertex has an edge to another vertex.
+   *
+   * @param {string} vertex The vertex to check
+   * @param {string} edgeTo The existing edge to look for
+   * @returns {boolean} if the edge exists
+   */
+  _vertexHasEdge(vertex, edgeTo) {
+    return this.adjacencyList[vertex].includes(edgeTo)
   }
 
   /**
