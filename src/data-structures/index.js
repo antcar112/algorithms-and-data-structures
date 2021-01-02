@@ -1,4 +1,4 @@
-const { BinarySearchTree } = require('./BinarySearchTree')
+const { BinarySearchTree } = require('./binary-search-tree')
 const { DoublyLinkedList } = require('./DoublyLinkedList')
 const { Graph } = require('./graph')
 const { HashTable } = require('./hash-table')

@@ -1,4 +1,4 @@
-// const { Graph } = require('./data-structures')
+// const { Graph } = require('./Graph')
 
 // const graph = new Graph()
 
