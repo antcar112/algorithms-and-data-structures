@@ -1,11 +1,31 @@
-// sort
-exports.bubbleSort = require('./sort/bubbleSort')
-exports.insertionSort = require('./sort/insertionSort')
-exports.mergeSort = require('./sort/mergeSort')
-exports.quickSort = require('./sort/quickSort')
-exports.radixSort = require('./sort/radixSort')
-exports.selectionSort = require('./sort/selectionSort')
+const { fibonacci } = require('./math')
+const {
+  bubbleSort,
+  insertionSort,
+  mergeSort,
+  quickSort,
+  radixSort,
+  selectionSort,
+} = require('./sort')
+const { removeConsecChars } = require('./string')
+const { breadthFirstSearch, depthFirstSearch } = require('./tree')
 
-// tree
-exports.breadthFirstSearch = require('./tree/breadthFirstSearch')
-exports.depthFirstSearch = require('./tree/depthFirstSearch')
+module.exports = {
+  // math
+  fibonacci,
+
+  // sort
+  bubbleSort,
+  insertionSort,
+  mergeSort,
+  quickSort,
+  radixSort,
+  selectionSort,
+
+  // string
+  removeConsecChars,
+
+  // tree
+  breadthFirstSearch,
+  depthFirstSearch,
+}

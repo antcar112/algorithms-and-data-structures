@@ -16,3 +16,5 @@ const fibonacci = (n) => {
 // console.log(fibonacci(2)) // 1
 // console.log(fibonacci(6)) // 8
 // console.log(fibonacci(22)) // 17711
+
+module.exports = { fibonacci }

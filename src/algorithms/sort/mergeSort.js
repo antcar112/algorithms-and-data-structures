@@ -35,4 +35,4 @@ const mergeSort = (arr) => {
 // console.log(mergeSort(arr2))
 // console.log(mergeSort(arr3))
 
-module.exports = mergeSort
+module.exports = { mergeSort }

@@ -1,13 +1,13 @@
-const { Queue } = require('../../data-structures')
+const { BinarySearchTree, Queue } = require('../../data-structures')
 
 /**
  * Searches a tree data structure. Starts at the tree root and explores all of the neighboring nodes before
  * moving to the next depth level.
  *
  * @param {BinarySearchTree} tree The tree to search
- * @returns {T} An array of the data in the tree
+ * @returns {T[]} An array of the data in the tree
  */
-const breathFirstSearch = (tree) => {
+const breadthFirstSearch = (tree) => {
   const data = []
   const queue = new Queue()
 
@@ -28,4 +28,4 @@ const breathFirstSearch = (tree) => {
   return data
 }
 
-module.exports = breathFirstSearch
+module.exports = { breadthFirstSearch }

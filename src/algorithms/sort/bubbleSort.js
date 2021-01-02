@@ -29,4 +29,4 @@ const bubbleSort = (arr) => {
 // console.log(bubbleSort(arr2))
 // console.log(bubbleSort(arr3))
 
-module.exports = bubbleSort
+module.exports = { bubbleSort }

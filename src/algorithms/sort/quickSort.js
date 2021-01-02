@@ -37,4 +37,4 @@ const quickSort = (arr, left = 0, right = arr.length - 1) => {
 // console.log(quickSort(arr2))
 // console.log(quickSort(arr3))
 
-module.exports = quickSort
+module.exports = { quickSort }

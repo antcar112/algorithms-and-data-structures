@@ -44,4 +44,4 @@ const radixSort = (nums) => {
 // console.log(radixSort(arr2))
 // console.log(radixSort(arr3))
 
-module.exports = radixSort
+module.exports = { radixSort }

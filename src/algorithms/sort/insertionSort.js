@@ -25,4 +25,4 @@ const insertionSort = (arr) => {
 // console.log(insertionSort(arr2))
 // console.log(insertionSort(arr3))
 
-module.exports = insertionSort
+module.exports = { insertionSort }

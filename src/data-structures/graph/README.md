@@ -15,7 +15,7 @@ Some common uses of graphs are friends on a social network, Google maps, and rec
 
 There are many, many different types of graphs.
 
-- Tree - A graph in which there are no cycles.
+- Tree - A graph in which there are no cycles. This means that for any two nodes, there is only ever one path between them.
 - Undirected graph - Edges have no direction between vertices. All connections are 2-way.
 - Directed graph - Edges have a set direction between vertices. Connections can be either 1-way or 2-way.
 - Unweighted graph - Edges have no values assigned to them.
@@ -44,3 +44,7 @@ If all the nodes are numeric and ordered, an array can be used instead.
 | Slower to lookup specific edge   | Faster to lookup specific edge   |
 
 The implementation in this repo uses an Adjacency List. This is because most real world data tends to be sparse, so using a list makes sense as it will take up less space.
+
+## Graph Traversal
+
+The simplest, most basic form of graph traversal is visiting each vertex in a graph. More complicated algorithms can perform operations such as finding the shortest path between two vertices, or closest matches to one specific vertex.

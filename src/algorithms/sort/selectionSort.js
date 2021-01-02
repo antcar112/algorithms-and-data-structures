@@ -33,4 +33,4 @@ const selectionSort = (arr) => {
 // console.log(selectionSort(arr2))
 // console.log(selectionSort(arr3))
 
-module.exports = selectionSort
+module.exports = { selectionSort }

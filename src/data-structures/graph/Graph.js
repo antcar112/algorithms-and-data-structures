@@ -24,7 +24,7 @@ class Graph {
    * @param {string} vertex2 The key of vertex 2.
    */
   addEdge(vertex1, vertex2) {
-    if (this._hasVertices([vertex1, vertex2])) {
+    if (this._hasVertices(vertex1, vertex2)) {
       if (!this._vertexHasEdge(vertex1, vertex2)) {
         this.adjacencyList[vertex1].push(vertex2)
       }
@@ -41,7 +41,7 @@ class Graph {
    * @param {string} vertex2 The key of vertex 2.
    */
   removeEdge(vertex1, vertex2) {
-    if (this._hasVertices([vertex1, vertex2])) {
+    if (this._hasVertices(vertex1, vertex2)) {
       this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter((edge) => edge !== vertex2)
       this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter((edge) => edge !== vertex1)
     }
@@ -63,14 +63,12 @@ class Graph {
   /**
    * Determines if graph contains vertices for all passed in keys.
    *
-   * @param {string | string[]} keys The vertex names to check
+   * @param {string[]} keys The vertex names to check
    * @returns {boolean} if all vertice names exist
    */
-  _hasVertices(keys) {
+  _hasVertices(...keys) {
     const existingVertices = Object.keys(this.adjacencyList)
-    return Array.isArray(keys)
-      ? keys.every((key) => existingVertices.includes(key))
-      : existingVertices.includes(keys)
+    return keys.every((key) => existingVertices.includes(key))
   }
 
   /**

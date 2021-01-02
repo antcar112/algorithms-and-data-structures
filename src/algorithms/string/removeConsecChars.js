@@ -30,3 +30,5 @@ const removeConsecChars = (str) => {
 // console.log(removeConsecChars(str1)) // 'ac'
 // console.log(removeConsecChars(str2)) // 'a'
 // console.log(removeConsecChars(str3)) // 'mb'
+
+module.exports = { removeConsecChars }
