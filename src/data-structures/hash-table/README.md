@@ -16,3 +16,12 @@ What happens when our hash function returns the same index for different keys? E
 
 1. **Separate chaining** - store values at each index using a more sophisticated data structure (ex. an array)
 2. **Linear probing** - when we find a collision, search for the next empty spot and store the data there
+
+## Time Complexity
+
+| Operation               | Time complexity | Array Time |
+| :---------------------- | :-------------- | :--------- |
+| Insertion               | **O(1)**        | O(n)       |
+| Removal                 | **O(1)**        | O(n)       |
+| Searching (for a value) | O(n)            | O(n)       |
+| Access                  | O(1)            | O(1)       |
