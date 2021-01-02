@@ -2,7 +2,7 @@
 
 This module includes a collection of common data strutures written in JavaScript.
 
-- [Hash Table](./hash-table/HashTable.js)
+- [Hash Table](./hash-table)
 
 ## [Singly Linked List](SinglyLinkedList.js)
 

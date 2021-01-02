@@ -14,11 +14,9 @@ class HashTable {
    */
   set(key, value) {
     const index = this._hash(key)
+    const pairs = this.keyMap[index]
 
-    if (!this.keyMap[index]) {
-      this.keyMap[index] = []
-    }
-
+    this.keyMap[index] = pairs ? pairs.filter(([currKey]) => currKey !== key) : []
     this.keyMap[index].push([key, value])
   }
 
@@ -40,6 +38,34 @@ class HashTable {
       }
     }
     return undefined
+  }
+
+  /**
+   * Returns an array of all key-value pairs in the hash table as tuples.
+   *
+   * @returns {[string, any][]} All key-value currently in the hash table.
+   */
+  entries() {
+    return this.keyMap.flatMap((entry) => entry)
+  }
+
+  /**
+   * Returns an array of all keys in the hash table.
+   *
+   * @returns {string[]} All keys currently in the hash table.
+   */
+  keys() {
+    return this.entries().map(([key]) => key)
+  }
+
+  /**
+   * Returns an array of all values in the hash table. Duplicate values are filtered out.
+   *
+   * @returns {any[]} All values currently in the hash table.
+   */
+  values() {
+    const values = this.entries().map(([, value]) => value)
+    return [...new Set(values)]
   }
 
   /**
