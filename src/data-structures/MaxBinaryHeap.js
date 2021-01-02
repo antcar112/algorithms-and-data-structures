@@ -1,4 +1,5 @@
-const { Heap } = require('./Heap')
+const { Heap } = require('./heap')
+
 class MaxBinaryHeap extends Heap {
   constructor() {
     super()

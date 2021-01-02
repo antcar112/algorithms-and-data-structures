@@ -55,7 +55,7 @@ class HashTable {
    * @returns {string[]} All keys currently in the hash table.
    */
   keys() {
-    return this.entries().map(([key]) => key)
+    return this.keyMap.flatMap((entry) => entry.map(([key]) => key))
   }
 
   /**
@@ -64,8 +64,24 @@ class HashTable {
    * @returns {any[]} All values currently in the hash table.
    */
   values() {
-    const values = this.entries().map(([, value]) => value)
+    const values = this.keyMap.flatMap((entry) => entry.map(([, value]) => value))
     return [...new Set(values)]
+  }
+
+  /**
+   * Adds all key-values pairs into a formatted string.
+   *
+   * @returns {string} A string of all node values
+   */
+  toString() {
+    return this.entries().reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {})
+  }
+
+  /**
+   * Prints the Hash Table values
+   */
+  print() {
+    console.log(this.toString())
   }
 
   /**

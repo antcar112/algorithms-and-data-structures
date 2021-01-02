@@ -37,6 +37,38 @@ class Heap {
   getChildren(index) {
     return [this.getLeftChild(index), this.getRightChild(index)]
   }
+
+  /**
+   * Adds all values into a formatted string.
+   *
+   * @returns {string} A string of all node values
+   */
+  toString() {
+    let valuesPerLine = 1
+    let valuesOnLine = 0
+
+    return (
+      this.values
+        .reduce((acc, curr) => {
+          acc += curr.val && curr.priority ? `${curr.val} (${curr.priority})` : curr
+
+          if (++valuesOnLine >= valuesPerLine) {
+            valuesOnLine = 0
+            valuesPerLine *= 2
+            return acc + '\n'
+          }
+          return acc + '  '
+        }, '')
+        .slice(0, -1) + '\n'
+    )
+  }
+
+  /**
+   * Prints the heap values
+   */
+  print() {
+    console.log(this.toString())
+  }
 }
 
 module.exports = { Heap }

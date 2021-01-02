@@ -1,4 +1,4 @@
-const { Heap } = require('./Heap')
+const { Heap } = require('./heap')
 
 class Node {
   constructor(val, priority) {
