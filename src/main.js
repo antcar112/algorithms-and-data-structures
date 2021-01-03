@@ -1,4 +1,5 @@
-// const { Graph } = require('./data-structures')
+const { binarySearch, linearSearch, naiveStringSearch } = require('./algorithms')
+const { Graph } = require('./data-structures')
 
 // const graph = new Graph()
 
@@ -26,23 +27,17 @@
 
 // graph.print()
 
-const { mergeSort, bubbleSort, radixSort, depthFirstSearch } = require('./algorithms')
-const { BinarySearchTree } = require('./data-structures')
+const sortedArr = [-3, 2, 6, 13, 55, 72, 101]
 
-const tree = new BinarySearchTree()
+// console.log(binarySearch(sortedArr, -3)) // 0
+// console.log(binarySearch(sortedArr, 13)) // 3
+// console.log(binarySearch(sortedArr, 101)) // 6
+// console.log(binarySearch(sortedArr, 66)) // -1
 
-tree.insert(12)
-tree.insert(10)
-tree.insert(22)
-tree.insert(32)
-tree.insert(102)
-tree.insert(1)
+const str = 'hi hello howdy hell yeah helicopter hey'
 
-console.log(tree.find(12))
-console.log(tree.find(132))
-
-const arr = [11, 5, 22, 0, 109, 42]
-
-console.log(bubbleSort(arr))
-console.log(mergeSort(arr))
-console.log(radixSort(arr))
+console.log(naiveStringSearch(str, 'hell')) // 2
+console.log(naiveStringSearch(str, 'hel')) // 3
+console.log(naiveStringSearch(str, 'he')) // 4
+console.log(naiveStringSearch(str, 'goodbye')) // 0
+console.log(naiveStringSearch(str, ' ')) // 6

@@ -1,4 +1,5 @@
 const { fibonacci } = require('./math')
+const { binarySearch, linearSearch, naiveStringSearch } = require('./search')
 const {
   bubbleSort,
   insertionSort,
@@ -13,6 +14,11 @@ const { breadthFirstSearch, depthFirstSearch } = require('./tree')
 module.exports = {
   // math
   fibonacci,
+
+  // search
+  binarySearch,
+  linearSearch,
+  naiveStringSearch,
 
   // sort
   bubbleSort,
