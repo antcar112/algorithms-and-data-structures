@@ -1,4 +1,4 @@
-const { binarySearch, linearSearch, naiveStringSearch } = require('./algorithms')
+const {} = require('./algorithms')
 const { Graph } = require('./data-structures')
 
 // const graph = new Graph()
@@ -26,18 +26,3 @@ const { Graph } = require('./data-structures')
 // graph.removeVertex('Aspen')
 
 // graph.print()
-
-const sortedArr = [-3, 2, 6, 13, 55, 72, 101]
-
-// console.log(binarySearch(sortedArr, -3)) // 0
-// console.log(binarySearch(sortedArr, 13)) // 3
-// console.log(binarySearch(sortedArr, 101)) // 6
-// console.log(binarySearch(sortedArr, 66)) // -1
-
-const str = 'hi hello howdy hell yeah helicopter hey'
-
-console.log(naiveStringSearch(str, 'hell')) // 2
-console.log(naiveStringSearch(str, 'hel')) // 3
-console.log(naiveStringSearch(str, 'he')) // 4
-console.log(naiveStringSearch(str, 'goodbye')) // 0
-console.log(naiveStringSearch(str, ' ')) // 6

@@ -1,11 +1,6 @@
-class Node {
-  constructor(val) {
-    this.val = val
-    this.next = null
-  }
-}
+const { Node } = require('./Node')
 
-class Queue {
+class Stack {
   constructor() {
     this.first = null
     this.last = null
@@ -13,30 +8,29 @@ class Queue {
   }
 
   /**
-   * Adds a new node to the back of the queue.
+   * Adds a new node to the top of the stack.
    *
    * @param {T} val The value to add
-   * @returns {number} The size of the queue
+   * @returns {number} The size of the stack
    */
-  enqueue(val) {
-    const node = new Node(val)
+  push(val) {
+    const newNode = new Node(val)
 
     if (!this.first) {
-      this.first = node
+      this.last = newNode
     } else {
-      this.last.next = node
+      newNode.next = this.first
     }
-    this.last = node
-
+    this.first = newNode
     return ++this.size
   }
 
   /**
-   * Removes the node at the front of the queue.
+   * Removes the node at the top of the stack.
    *
    * @returns {T} The value of the removed node
    */
-  dequeue() {
+  pop() {
     if (!this.first) {
       return null
     }
@@ -60,10 +54,10 @@ class Queue {
     let str = ''
     let node = this.first
     while (node) {
-      str += `${node.val}, `
+      str += `${node.val},\n`
       node = node.next
     }
-    return `[ ${str.slice(0, -2)} ]`
+    return str.slice(0, -2)
   }
 
   /**
@@ -74,4 +68,4 @@ class Queue {
   }
 }
 
-module.exports = { Queue }
+module.exports = { Stack }
