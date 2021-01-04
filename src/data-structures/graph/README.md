@@ -45,6 +45,6 @@ If all the nodes are numeric and ordered, an array can be used instead.
 
 The implementation in this repo uses an Adjacency List. This is because most real world data tends to be sparse, so using a list makes sense as it will take up less space.
 
-## Graph Traversal
+## [Graph Traversal](../../algorithms/graph)
 
-The simplest, most basic form of graph traversal is visiting each vertex in a graph. More complicated algorithms can perform operations such as finding the shortest path between two vertices, or closest matches to one specific vertex.
+The simplest, most basic form of graph traversal is visiting each vertex in a graph. More complicated algorithms can perform operations such as finding the shortest path between two vertices, or closest matches to one specific vertex. See [graph algorithms](../../algorithms/graph) for more info.

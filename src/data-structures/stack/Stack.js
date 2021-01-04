@@ -1,10 +1,17 @@
 const { Node } = require('./Node')
 
 class Stack {
-  constructor() {
+  /**
+   * @param {T?} val First value to add to the stack
+   */
+  constructor(val) {
     this.first = null
     this.last = null
     this.size = 0
+
+    if (val) {
+      this.push(val)
+    }
   }
 
   /**

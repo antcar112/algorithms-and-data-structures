@@ -1,28 +1,24 @@
-const {} = require('./algorithms')
+const {
+  depthFirstTraversal,
+  breadthFirstTraversal,
+  depthFirstTraversalIterative,
+} = require('./algorithms')
 const { Graph } = require('./data-structures')
 
-// const graph = new Graph()
+const vertice = ['A', 'B', 'C', 'D', 'E', 'F']
+const edges = [
+  ['A', 'B'],
+  ['A', 'C'],
+  ['B', 'D'],
+  ['C', 'E'],
+  ['D', 'E'],
+  ['D', 'F'],
+  ['E', 'F'],
+]
 
-// graph.addVertex('San Francisco')
-// graph.addVertex('Tokyo')
-// graph.addVertex('Dallas')
-// graph.addVertex('Hong Kong')
-
-// graph.addEdge('San Francisco', 'Dallas')
-// graph.addEdge('Tokyo', 'San Francisco')
-// graph.addEdge('Tokyo', 'San Francisco')
-
-// graph.addVertex('San Francisco')
-
-// graph.removeEdge('Tokyo', 'San Francisco')
-
-// graph.addEdge('Tokyo', 'San Francisco')
-// graph.addEdge('Hong Kong', 'San Francisco')
-// graph.addEdge('Hong Kong', 'Tokyo')
+const graph = new Graph(vertice, edges)
 
 // graph.print()
 
-// graph.removeVertex('Hong Kong')
-// graph.removeVertex('Aspen')
-
-// graph.print()
+console.log(breadthFirstTraversal(graph, 'A'))
+// console.log(depthFirstTraversalIterative(graph, 'A'))

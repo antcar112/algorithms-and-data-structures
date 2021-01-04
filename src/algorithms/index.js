@@ -1,3 +1,8 @@
+const {
+  breadthFirstTraversal,
+  depthFirstTraversal,
+  depthFirstTraversalIterative,
+} = require('./graph')
 const { fibonacci } = require('./math')
 const { binarySearch, linearSearch, naiveStringSearch } = require('./search')
 const {
@@ -12,6 +17,11 @@ const { removeConsecChars } = require('./string')
 const { breadthFirstSearch, depthFirstSearch } = require('./tree')
 
 module.exports = {
+  // graph
+  breadthFirstTraversal,
+  depthFirstTraversal,
+  depthFirstTraversalIterative,
+
   // math
   fibonacci,
 

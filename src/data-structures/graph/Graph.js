@@ -2,8 +2,19 @@
  * An undirected graph build using an adjacency list.
  */
 class Graph {
-  constructor() {
+  /**
+   * @param {{string[]?}} vertice The keys of the vertice to add to graph.
+   * @param {Array<[string, string]>?} edges The keys of the vertice to add to graph.
+   */
+  constructor(vertice, edges) {
     this.adjacencyList = {}
+
+    if (vertice) {
+      vertice.forEach((vertex) => this.addVertex(vertex))
+    }
+    if (edges) {
+      edges.forEach((edge) => this.addEdge(...edge))
+    }
   }
 
   /**

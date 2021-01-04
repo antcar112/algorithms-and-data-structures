@@ -1,10 +1,17 @@
 const { Node } = require('./Node')
 
 class Queue {
-  constructor() {
+  /**
+   * @param {T?} val First value to add to the queue
+   */
+  constructor(val) {
     this.first = null
     this.last = null
     this.size = 0
+
+    if (val) {
+      this.enqueue(val)
+    }
   }
 
   /**
