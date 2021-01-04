@@ -1,23 +1,24 @@
-class Node {
-  constructor(val) {
-    this.val = val
-    this.next = null
-    this.prev = null
-  }
-}
+const { Node } = require('./Node')
 
-class DoublyLinkedList {
-  constructor() {
+class LinkedList {
+  /**
+   * @param {T[]?} values Adds any passed in values to the list
+   */
+  constructor(...values) {
     this.head = null
     this.tail = null
     this.length = 0
+
+    if (values) {
+      values.forEach((value) => this.push(value))
+    }
   }
 
   /**
    * Adds new node to the end of the list.
    *
    * @param {T} val The value to add
-   * @returns {DoublyLinkedList} The updated linked list
+   * @returns {LinkedList} The updated linked list
    */
   push(val) {
     const node = new Node(val)
@@ -26,9 +27,7 @@ class DoublyLinkedList {
       this.head = node
     } else {
       this.tail.next = node
-      node.prev = this.tail
     }
-
     this.tail = node
     this.length++
     return this
@@ -43,37 +42,42 @@ class DoublyLinkedList {
     if (!this.head) {
       return undefined
     }
-    const removedNode = this.tail
 
-    if (this.length === 1) {
+    let current = this.head
+    let newTail
+
+    while (current.next) {
+      newTail = current
+      current = current.next
+    }
+    this.tail = newTail
+    this.tail.next = null
+    this.length--
+
+    if (!this.length) {
       this.head = null
       this.tail = null
-    } else {
-      this.tail = removedNode.prev
-      removedNode.prev = null
-      this.tail.next = null
     }
 
-    this.length--
-    return removedNode.val
+    return current.val
   }
 
   /**
    * Adds new node to the start of the list.
    *
    * @param {T} val The value to add
-   * @returns {DoublyLinkedList} The updated linked list
+   * @returns {LinkedList} The updated linked list
    */
   unshift(val) {
-    const newNode = new Node(val)
+    const node = new Node(val)
 
-    if (!this.length) {
-      this.tail = newNode
+    if (!this.head) {
+      this.tail = node
     } else {
-      this.head.prev = newNode
-      newNode.next = this.head
+      node.next = this.head
     }
-    this.head = newNode
+
+    this.head = node
     this.length++
     return this
   }
@@ -87,18 +91,16 @@ class DoublyLinkedList {
     if (!this.head) {
       return undefined
     }
-    const removedNode = this.head
 
-    if (this.length === 1) {
-      this.head = null
-      this.tail = null
-    } else {
-      this.head = removedNode.next
-      this.head.prev = null
-      removedNode.next = null
-    }
+    const currentHead = this.head
+    this.head = currentHead.next
     this.length--
-    return removedNode.val
+
+    if (!this.length) {
+      this.tail = null
+    }
+
+    return currentHead.val
   }
 
   /**
@@ -112,18 +114,10 @@ class DoublyLinkedList {
       return null
     }
 
-    let current
+    let current = this.head
 
-    if (index <= this.length / 2) {
-      current = this.head
-      for (let count = 0; count !== index; count++) {
-        current = current.next
-      }
-    } else {
-      current = this.tail
-      for (let count = this.length - 1; count !== index; count--) {
-        current = current.prev
-      }
+    for (let count = 0; count !== index; count++) {
+      current = current.next
     }
 
     return current
@@ -165,13 +159,8 @@ class DoublyLinkedList {
 
     const newNode = new Node(val)
     const prevNode = this.get(index - 1)
-    const nextNode = prevNode.next
-
+    newNode.next = prevNode.next
     prevNode.next = newNode
-    newNode.prev = prevNode
-    newNode.next = nextNode
-    nextNode.prev = newNode
-
     this.length++
     return true
   }
@@ -193,37 +182,32 @@ class DoublyLinkedList {
       return this.pop()
     }
 
-    const node = this.get(index)
-
-    node.prev.next = node.next
-    node.next.prev = node.prev
-    node.prev = null
-    node.next = null
-
+    const prevNode = this.get(index - 1)
+    const removedNode = prevNode.next
+    prevNode.next = removedNode.next
     this.length--
-    return node.val
+    return removedNode
   }
 
   /**
    * Reverses the linked list.
    *
-   * @returns {DoublyLinkedList} The updated linked list
+   * @returns {LinkedList} The updated linked list
    */
   reverse() {
-    let current = this.head
+    let node = this.head
+    // Swap head and tail
     this.head = this.tail
-    this.tail = current
+    this.tail = node
 
     let prev = null
     let next
 
     for (let i = 0; i < this.length; i++) {
-      next = current.next
-      current.next = prev
-      current.prev = next
-
-      prev = current
-      current = next
+      next = node.next
+      node.next = prev
+      prev = node
+      node = next
     }
     return this
   }
@@ -251,4 +235,4 @@ class DoublyLinkedList {
   }
 }
 
-module.exports = { DoublyLinkedList }
+module.exports = { LinkedList }

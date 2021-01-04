@@ -2,15 +2,15 @@ const { Node } = require('./Node')
 
 class Stack {
   /**
-   * @param {T?} val First value to add to the stack
+   * @param {T[]?} values Adds any passed in values to the stack
    */
-  constructor(val) {
+  constructor(...values) {
     this.first = null
     this.last = null
     this.size = 0
 
-    if (val) {
-      this.push(val)
+    if (values) {
+      values.forEach((value) => this.push(value))
     }
   }
 

@@ -2,15 +2,15 @@ const { Node } = require('./Node')
 
 class Queue {
   /**
-   * @param {T?} val First value to add to the queue
+   * @param {T[]?} values Adds any passed in valuesues to the queue
    */
-  constructor(val) {
+  constructor(...values) {
     this.first = null
     this.last = null
     this.size = 0
 
-    if (val) {
-      this.enqueue(val)
+    if (values) {
+      values.forEach((value) => this.enqueue(value))
     }
   }
 

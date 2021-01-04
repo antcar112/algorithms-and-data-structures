@@ -1,22 +1,24 @@
-class Node {
-  constructor(val) {
-    this.val = val
-    this.next = null
-  }
-}
+const { Node } = require('./Node')
 
-class SinglyLinkedList {
-  constructor() {
+class DoublyLinkedList {
+  /**
+   * @param {T[]?} values Adds any passed in values to the list
+   */
+  constructor(...values) {
     this.head = null
     this.tail = null
     this.length = 0
+
+    if (values) {
+      values.forEach((value) => this.push(value))
+    }
   }
 
   /**
    * Adds new node to the end of the list.
    *
    * @param {T} val The value to add
-   * @returns {SinglyLinkedList} The updated linked list
+   * @returns {DoublyLinkedList} The updated linked list
    */
   push(val) {
     const node = new Node(val)
@@ -25,7 +27,9 @@ class SinglyLinkedList {
       this.head = node
     } else {
       this.tail.next = node
+      node.prev = this.tail
     }
+
     this.tail = node
     this.length++
     return this
@@ -40,42 +44,37 @@ class SinglyLinkedList {
     if (!this.head) {
       return undefined
     }
+    const removedNode = this.tail
 
-    let current = this.head
-    let newTail
-
-    while (current.next) {
-      newTail = current
-      current = current.next
-    }
-    this.tail = newTail
-    this.tail.next = null
-    this.length--
-
-    if (!this.length) {
+    if (this.length === 1) {
       this.head = null
       this.tail = null
+    } else {
+      this.tail = removedNode.prev
+      removedNode.prev = null
+      this.tail.next = null
     }
 
-    return current.val
+    this.length--
+    return removedNode.val
   }
 
   /**
    * Adds new node to the start of the list.
    *
    * @param {T} val The value to add
-   * @returns {SinglyLinkedList} The updated linked list
+   * @returns {DoublyLinkedList} The updated linked list
    */
   unshift(val) {
-    const node = new Node(val)
+    const newNode = new Node(val)
 
-    if (!this.head) {
-      this.tail = node
+    if (!this.length) {
+      this.tail = newNode
     } else {
-      node.next = this.head
+      this.head.prev = newNode
+      newNode.next = this.head
     }
-
-    this.head = node
+    this.head = newNode
     this.length++
     return this
   }
@@ -89,16 +88,18 @@ class SinglyLinkedList {
     if (!this.head) {
       return undefined
     }
+    const removedNode = this.head
 
-    const currentHead = this.head
-    this.head = currentHead.next
-    this.length--
-
-    if (!this.length) {
+    if (this.length === 1) {
+      this.head = null
       this.tail = null
+    } else {
+      this.head = removedNode.next
+      this.head.prev = null
+      removedNode.next = null
     }
-
-    return currentHead.val
+    this.length--
+    return removedNode.val
   }
 
   /**
@@ -112,10 +113,18 @@ class SinglyLinkedList {
       return null
     }
 
-    let current = this.head
+    let current
 
-    for (let count = 0; count !== index; count++) {
-      current = current.next
+    if (index <= this.length / 2) {
+      current = this.head
+      for (let count = 0; count !== index; count++) {
+        current = current.next
+      }
+    } else {
+      current = this.tail
+      for (let count = this.length - 1; count !== index; count--) {
+        current = current.prev
+      }
     }
 
     return current
@@ -157,8 +166,13 @@ class SinglyLinkedList {
 
     const newNode = new Node(val)
     const prevNode = this.get(index - 1)
-    newNode.next = prevNode.next
+    const nextNode = prevNode.next
+
     prevNode.next = newNode
+    newNode.prev = prevNode
+    newNode.next = nextNode
+    nextNode.prev = newNode
+
     this.length++
     return true
   }
@@ -180,32 +194,37 @@ class SinglyLinkedList {
       return this.pop()
     }
 
-    const prevNode = this.get(index - 1)
-    const removedNode = prevNode.next
-    prevNode.next = removedNode.next
+    const node = this.get(index)
+
+    node.prev.next = node.next
+    node.next.prev = node.prev
+    node.prev = null
+    node.next = null
+
     this.length--
-    return removedNode
+    return node.val
   }
 
   /**
    * Reverses the linked list.
    *
-   * @returns {SinglyLinkedList} The updated linked list
+   * @returns {DoublyLinkedList} The updated linked list
    */
   reverse() {
-    let node = this.head
-    // Swap head and tail
+    let current = this.head
     this.head = this.tail
-    this.tail = node
+    this.tail = current
 
     let prev = null
     let next
 
     for (let i = 0; i < this.length; i++) {
-      next = node.next
-      node.next = prev
-      prev = node
-      node = next
+      next = current.next
+      current.next = prev
+      current.prev = next
+
+      prev = current
+      current = next
     }
     return this
   }
@@ -233,4 +252,4 @@ class SinglyLinkedList {
   }
 }
 
-module.exports = { SinglyLinkedList }
+module.exports = { DoublyLinkedList }
