@@ -19,7 +19,7 @@ There are many, many different types of graphs.
 - Undirected graph - Edges have no direction between vertices. All connections are 2-way.
 - Directed graph - Edges have a set direction between vertices. Connections can be either 1-way or 2-way.
 - Unweighted graph - Edges have no values assigned to them.
-- Weighted graph - Edges have values assigned to them. Could be used to show distance, priority, etc.
+- [Weighted graph](WeightedGraph.js) - Edges have values assigned to them. Could be used to show distance, priority, etc.
 
 ## Storing Graphs
 

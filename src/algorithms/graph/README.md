@@ -11,3 +11,7 @@ Depth first traversal will prioritize visiting vertices along each branch before
 ## [Breadth First Traversal](./breadthFirstTraversal.js)
 
 Breadth first traversal will prioritize visiting all direct neighbouring vertices before continuing down each branch. For example, if root vertex `R` has children `A` and `B`, the breadth first traversal will visit `A` and then `B` _before_ visiting any other neighbours of `A` or `B`.
+
+## [Dijkstra's Short Path Algorithm](./dijkstra.js)
+
+Dijkstra's algorithm takes a graph and finds the shortest paths between two vertices.

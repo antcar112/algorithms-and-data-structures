@@ -35,13 +35,14 @@ class Graph {
    * @param {string} vertex2 The key of vertex 2.
    */
   addEdge(vertex1, vertex2) {
-    if (this._hasVertices(vertex1, vertex2)) {
-      if (!this._vertexHasEdge(vertex1, vertex2)) {
-        this.adjacencyList[vertex1].push(vertex2)
-      }
-      if (!this._vertexHasEdge(vertex2, vertex1)) {
-        this.adjacencyList[vertex2].push(vertex1)
-      }
+    if (vertex1 === vertex2 || !this._hasVertices(vertex1, vertex2)) {
+      return
+    }
+    if (!this._vertexHasEdge(vertex1, vertex2)) {
+      this.adjacencyList[vertex1].push(vertex2)
+    }
+    if (!this._vertexHasEdge(vertex2, vertex1)) {
+      this.adjacencyList[vertex2].push(vertex1)
     }
   }
 
@@ -61,7 +62,7 @@ class Graph {
   /**
    * Removes existing vertex and all it's existing edges from the graph.
    *
-   * @param {string} vertex The key of the vertex to add.
+   * @param {string} vertex The key of the vertex to remove.
    */
   removeVertex(vertex) {
     if (!this._hasVertices(vertex)) {

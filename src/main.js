@@ -1,35 +1,22 @@
-const {
-  depthFirstTraversal,
-  breadthFirstTraversal,
-  depthFirstTraversalIterative,
-} = require('./algorithms')
-const { Graph, LinkedList, DoublyLinkedList } = require('./data-structures')
+const { dijkstra, breadthFirstTraversal } = require('./algorithms')
+const { WeightedGraph } = require('./data-structures')
 
+dijkstra()
 const vertice = ['A', 'B', 'C', 'D', 'E', 'F']
 const edges = [
-  ['A', 'B'],
-  ['A', 'C'],
-  ['B', 'D'],
-  ['C', 'E'],
-  ['D', 'E'],
-  ['D', 'F'],
-  ['E', 'F'],
+  ['A', 'B', 10],
+  ['A', 'C', 6],
+  ['B', 'D', 6],
+  ['C', 'E', 6],
+  ['D', 'E', 6],
+  ['D', 'F', 6],
+  ['E', 'F', 6],
 ]
 
-const graph = new Graph(vertice, edges)
+const graph = new WeightedGraph(vertice, edges)
 
-// graph.print()
+// graph.removeVertex('A')
+
+graph.print()
 
 console.log(breadthFirstTraversal(graph, 'A'))
-// console.log(depthFirstTraversalIterative(graph, 'A'))
-
-const a = new DoublyLinkedList(1)
-const b = new DoublyLinkedList(1, 2, 3)
-const c = new DoublyLinkedList()
-
-a.print()
-b.print()
-c.print()
-
-c.push('apple')
-console.log(c.get(0))

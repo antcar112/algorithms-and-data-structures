@@ -1,3 +1,1 @@
-const { Graph } = require('./Graph')
-
-module.exports = { Graph }
+module.exports = { ...require('./Graph'), ...require('./WeightedGraph') }

@@ -1,8 +1,5 @@
-const { breadthFirstTraversal } = require('./breadthFirstTraversal')
-const { depthFirstTraversal, depthFirstTraversalIterative } = require('./depthFirstTraversal')
-
 module.exports = {
-  breadthFirstTraversal,
-  depthFirstTraversal,
-  depthFirstTraversalIterative,
+  ...require('./breadthFirstTraversal'),
+  ...require('./depthFirstTraversal'),
+  ...require('./dijkstra'),
 }
