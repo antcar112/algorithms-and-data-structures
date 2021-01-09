@@ -1,4 +1,4 @@
-const { dijkstra, breadthFirstTraversal } = require('./algorithms')
+const { dijkstra, depthFirstTraversalIterative, depthFirstTraversal } = require('./algorithms')
 const { WeightedGraph } = require('./data-structures')
 
 dijkstra()
@@ -19,4 +19,4 @@ const graph = new WeightedGraph(vertice, edges)
 
 graph.print()
 
-console.log(breadthFirstTraversal(graph, 'A'))
+console.log(depthFirstTraversal(graph, 'A'))

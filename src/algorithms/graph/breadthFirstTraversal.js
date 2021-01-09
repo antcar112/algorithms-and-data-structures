@@ -17,9 +17,11 @@ const breadthFirstTraversal = (graph, root) => {
     results.push(currentVertex)
 
     graph.adjacencyList[currentVertex].forEach((neighbour) => {
-      if (!visited[neighbour]) {
-        visited[neighbour] = true
-        toVisit.enqueue(neighbour)
+      const neighbourVertex = neighbour.vertex || neighbour
+
+      if (!visited[neighbourVertex]) {
+        visited[neighbourVertex] = true
+        toVisit.enqueue(neighbourVertex)
       }
     })
   }

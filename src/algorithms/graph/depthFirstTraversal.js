@@ -22,8 +22,10 @@ const depthFirstTraversal = (graph, root) => {
     visited[vertex] = true
 
     graph.adjacencyList[vertex].forEach((neighbour) => {
-      if (!visited[neighbour]) {
-        return visitVertex(neighbour)
+      const neighbourVertex = neighbour.vertex || neighbour
+
+      if (!visited[neighbourVertex]) {
+        return visitVertex(neighbourVertex)
       }
     })
   }
@@ -53,9 +55,11 @@ const depthFirstTraversalIterative = (graph, root) => {
     results.push(currentVertex)
 
     graph.adjacencyList[currentVertex].forEach((neighbour) => {
-      if (!visited[neighbour]) {
-        visited[neighbour] = true
-        toVisit.push(neighbour)
+      const neighbourVertex = neighbour.vertex || neighbour
+
+      if (!visited[neighbourVertex]) {
+        visited[neighbourVertex] = true
+        toVisit.push(neighbourVertex)
       }
     })
   }
