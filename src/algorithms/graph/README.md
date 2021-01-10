@@ -14,4 +14,9 @@ Breadth first traversal will prioritize visiting all direct neighbouring vertice
 
 ## [Dijkstra's Short Path Algorithm](./dijkstra.js)
 
-Dijkstra's algorithm takes a graph and finds the shortest paths between two vertices.
+Dijkstra's algorithm takes a graph and finds the shortest paths between two vertices. Here is the basic approach to the idea.
+
+1. Every time a new node is visited, pick the node with the smallest known distance to visit first
+2. Once we've moved to the node, look at each of its neighbors
+3. For each neighboring vertex, calculate the distance by summing the total edges that lead to the node we're checking from the starting node
+4. If the new distance to a node is less than the previous total, store the new shorter distance for that node

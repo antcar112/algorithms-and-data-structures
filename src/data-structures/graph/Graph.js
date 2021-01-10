@@ -73,13 +73,32 @@ class Graph {
   }
 
   /**
+   * Returns all vertices in the graph.
+   *
+   * @returns {string[]} Vertices in graph
+   */
+  getVertices() {
+    return Object.keys(this.adjacencyList)
+  }
+
+  /**
+   * Returns the edges of a vertex
+   *
+   * @param {string} vertex The vertex name
+   * @returns {Array<>} Edges of that vertex
+   */
+  getEdges(vertex) {
+    return this.adjacencyList[vertex]
+  }
+
+  /**
    * Determines if graph contains vertices for all passed in keys.
    *
    * @param {string[]} keys The vertex names to check
    * @returns {boolean} if all vertice names exist
    */
   _hasVertices(...keys) {
-    const existingVertices = Object.keys(this.adjacencyList)
+    const existingVertices = this.getVertices()
     return keys.every((key) => existingVertices.includes(key))
   }
 

@@ -54,7 +54,8 @@ class Heap {
     return (
       this.values
         .reduce((acc, curr) => {
-          acc += curr.val && curr.priority ? `${curr.val} (${curr.priority})` : curr
+          console.log(curr)
+          acc += curr.val && curr.priority !== undefined ? `${curr.val} (${curr.priority})` : curr
 
           if (++valuesOnLine >= valuesPerLine) {
             valuesOnLine = 0

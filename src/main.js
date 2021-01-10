@@ -1,22 +1,21 @@
-const { dijkstra, depthFirstTraversalIterative, depthFirstTraversal } = require('./algorithms')
+const { dijkstra } = require('./algorithms')
 const { WeightedGraph } = require('./data-structures')
 
-dijkstra()
 const vertice = ['A', 'B', 'C', 'D', 'E', 'F']
 const edges = [
-  ['A', 'B', 10],
-  ['A', 'C', 6],
-  ['B', 'D', 6],
-  ['C', 'E', 6],
-  ['D', 'E', 6],
-  ['D', 'F', 6],
-  ['E', 'F', 6],
+  ['A', 'B', 4],
+  ['A', 'C', 2],
+  ['B', 'E', 3],
+  ['C', 'D', 2],
+  ['C', 'F', 4],
+  ['D', 'E', 3],
+  ['D', 'F', 1],
+  ['E', 'F', 1],
 ]
 
 const graph = new WeightedGraph(vertice, edges)
 
-// graph.removeVertex('A')
-
-graph.print()
-
-console.log(depthFirstTraversal(graph, 'A'))
+console.log(dijkstra(graph, 'A', 'B')) // 4
+console.log(dijkstra(graph, 'A', 'C')) // 2
+console.log(dijkstra(graph, 'A', 'E')) // 6
+console.log(dijkstra(graph, 'A', 'F')) // 5
