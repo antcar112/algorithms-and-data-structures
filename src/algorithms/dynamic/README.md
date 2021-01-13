@@ -19,3 +19,9 @@ For example, the shortest path from `A` to `D` in a graph is `A` -> `B` -> `C` -
 ## Memoization
 
 In problems where we are solving the same subproblem multiple times (ex. [recursive fibonacci solution](fibonacci.js)), we can use memoization to drastically improve performance. Memoization is storing the results of expensive function calls, and then returning the cached results when the same input occurs again.
+
+Memoization is a top down approach.
+
+## Tabulation
+
+Tabulation is a bottom up appraoch. It stores the results of a previous result in a "table" (usually an array). It is usually down with iteration, and can lead to better space complexity than memoization.

@@ -13,7 +13,7 @@ const nonDynamicFib = (num) => {
 /**
  * Dynamic solution, using memoization.
  *
- * This memoized solutions has a time complexity of O(N) 🥳.
+ * This memoized solution has a time complexity of O(N) 🥳.
  */
 const fibMemoed = (num, memo = []) => {
   if (memo[num] !== undefined) return memo[num]
@@ -23,4 +23,18 @@ const fibMemoed = (num, memo = []) => {
   return result
 }
 
-module.exports = { fibMemoed, nonDynamicFib }
+/**
+ * Dynamic solution, using tabulation.
+ *
+ * This tabulated solution also has a time complexity of O(N) 🎉.
+ */
+const fibTabulated = (num) => {
+  if (num <= 2) return 1
+  const fibNums = [0, 1, 1]
+  for (let i = 3; i <= num; i++) {
+    fibNums[i] = fibNums[i - 1] + fibNums[i - 2]
+  }
+  return fibNums[num]
+}
+
+module.exports = { fibMemoed, fibTabulated, nonDynamicFib }

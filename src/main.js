@@ -1,4 +1,3 @@
-const { dynamicFib, nonDynamicFib } = require('./algorithms')
+const { fibTabulated } = require('./algorithms')
 
-console.log('recursive: ', nonDynamicFib(30))
-console.log('memoed: ', dynamicFib(100))
+console.log('memoed: ', fibTabulated(100))
