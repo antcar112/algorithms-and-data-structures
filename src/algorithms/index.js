@@ -1,4 +1,5 @@
 module.exports = {
+  ...require('./dynamic'),
   ...require('./graph'),
   ...require('./math'),
   ...require('./search'),
